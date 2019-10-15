@@ -94,15 +94,16 @@ function initialize()
 	markerRoot1.add(mesh);
 
 	markerControls1.addEventListener("markerFound", e => {
+        console.log("found")
 		mesh.scale.x =  mesh.scale.y =  mesh.scale.z = 0.1;
-		/*anime({
+		anime({
 			targets: mesh.scale,
 			x:1,
 			y:1,
 			z:1,
 			easing:'easeInBounce',
 			round:1
-		})*/
+		})
 	});
 }
 
