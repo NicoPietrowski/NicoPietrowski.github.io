@@ -78,8 +78,8 @@ function initialize()
         type: 'barcode', 
         barcodeValue: 6, 
         smooth: true, 
-        smoothCount: 10, 
-        smoothTolerance: 0.01, 
+        smoothCount: 8, 
+        smoothTolerance: 0.015, 
         smoothThreshold: 2
 	})
 
