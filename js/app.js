@@ -80,7 +80,7 @@ function initialize()
         smooth: true, 
         smoothCount: 10, 
         smoothTolerance: 0.02, 
-        smoothThreshold: 5
+        smoothThreshold: 2
 	})
 
 	/*let geometry1	= new THREE.CubeGeometry(1,1,1);
