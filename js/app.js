@@ -101,6 +101,7 @@ function initialize()
 	});
 	var mesh = new THREE.Mesh(geometry, material);
 	mesh.position.y = 0.5;
+	mesh.rotation = -1.5708;
 	markerRoot1.add(mesh);
 }
 
