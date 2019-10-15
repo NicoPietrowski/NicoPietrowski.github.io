@@ -71,8 +71,8 @@ function initialize()
 	arToolkitContext.init( function onCompleted(){
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
     });
-
 	markerRoot1 = new THREE.Group();
+	
 	scene.add(markerRoot1);
 	let markerControls1 = new THREEx.ArMarkerControls(arToolkitContext, markerRoot1, {
         type: 'barcode', 
@@ -83,17 +83,6 @@ function initialize()
         smoothThreshold: 2
 	})
 
-	/*let geometry1	= new THREE.CubeGeometry(1,1,1);
-	let material1	= new THREE.MeshNormalMaterial({
-		transparent: true,
-		opacity: 0.5,
-		side: THREE.DoubleSide
-	}); 
-	
-	mesh1 = new THREE.Mesh( geometry1, material1 );
-	mesh1.position.y = 0.5;
-	
-	markerRoot1.add( mesh1 );*/
 	let geometry = new THREE.PlaneGeometry(5,5);
 	var loader = new THREE.TextureLoader();
 	var material = new THREE.MeshLambertMaterial({
@@ -103,6 +92,18 @@ function initialize()
 	mesh.position.y = 0.5;
 	mesh.rotation.x = -Math.PI / 2;
 	markerRoot1.add(mesh);
+
+	markerControls1.addEventListener("markerFound", e => {
+		mesh.scale.x =  mesh.scale.y =  mesh.scale.z = 0;
+		anime({
+			targets: mesh.scale,
+			x:1,
+			y:1,
+			z:1,
+			easing:'easeInBounce',
+			round:1
+		})
+	});
 }
 
 function update()
