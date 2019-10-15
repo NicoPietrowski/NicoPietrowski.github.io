@@ -82,7 +82,8 @@ function initialize()
         smoothTolerance: 0.02, 
         smoothThreshold: 5
 	})
-	let geometry1	= new THREE.CubeGeometry(1,1,1);
+
+	/*let geometry1	= new THREE.CubeGeometry(1,1,1);
 	let material1	= new THREE.MeshNormalMaterial({
 		transparent: true,
 		opacity: 0.5,
@@ -92,7 +93,15 @@ function initialize()
 	mesh1 = new THREE.Mesh( geometry1, material1 );
 	mesh1.position.y = 0.5;
 	
-	markerRoot1.add( mesh1 );
+	markerRoot1.add( mesh1 );*/
+	let geometry = new THREE.PlaneGeometry(5,5);
+	var loader = new THREE.TextureLoader();
+	var material = new THREE.MeshLambertMaterial({
+		map: loader.load('/assets/img/photo.png')
+	});
+	var mesh = new THREE.Mesh(geometry, material);
+	mesh.position.y = 0.5;
+	markerRoot1.add(mesh);
 }
 
 function update()
